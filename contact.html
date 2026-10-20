@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me | Kanishka</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #292044;
+            background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+        }
+
+        nav {
+            background: #35206b;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 12px 15px;
+            margin: 0 2px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: #ff4f9a;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .intro h1 {
+            color: #6a11cb;
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .intro p {
+            color: #514779;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 25px;
+            align-items: stretch;
+        }
+
+        .contact-info,
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 23px;
+            box-shadow: 0 10px 28px rgba(53, 32, 107, 0.12);
+        }
+
+        .contact-info h2,
+        .contact-form h2 {
+            color: #6a11cb;
+            margin-top: 0;
+        }
+
+        .contact-info > p {
+            color: #6b6480;
+            line-height: 1.8;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 22px;
+            padding: 15px;
+            background: #f7f2ff;
+            border-radius: 14px;
+        }
+
+        .info-icon {
+            width: 45px;
+            height: 45px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e8dcff;
+            border-radius: 12px;
+            font-size: 23px;
+        }
+
+        .info-item h3 {
+            font-size: 15px;
+            margin: 0 0 6px;
+            color: #35206b;
+        }
+
+        .info-item p,
+        .info-item a {
+            margin: 0;
+            color: #6b6480;
+            font-size: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        .info-item a {
+            color: #6a11cb;
+        }
+
+        .contact-form label {
+            display: block;
+            margin: 17px 0 8px;
+            font-weight: bold;
+            color: #35206b;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ddd2f3;
+            border-radius: 10px;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #6a11cb;
+            box-shadow: 0 0 0 3px #eee5ff;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 22px;
+            border: none;
+            border-radius: 11px;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(90deg, #8b2be2, #ff4f9a);
+        }
+
+        .bottom-card {
+            margin-top: 25px;
+            padding: 28px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(110deg, #6a11cb, #2575fc);
+            border-radius: 22px;
+        }
+
+        .bottom-card h2 {
+            margin-top: 0;
+        }
+
+        .bottom-card p {
+            line-height: 1.7;
+        }
+
+        .bottom-card .button {
+            background: white;
+            color: #5425a8;
+        }
+
+        footer {
+            margin-top: 45px;
+            padding: 18px;
+            text-align: center;
+            background: #35206b;
+            color: white;
+        }
+
+        @media (max-width: 750px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .intro h1 {
+                font-size: 32px;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 23px;
+            }
+
+            nav a {
+                padding: 9px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html">Dashboard</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a class="active" href="contact.html">Contact</a>
+</nav>
+
+<main class="container">
+
+    <section class="intro">
+        <h1>Let's Connect! 💌</h1>
+        <p>
+            Have a question, an idea, or an exciting opportunity?
+            I'd love to hear from you!
+        </p>
+    </section>
+
+    <section class="contact-layout">
+
+        <div class="contact-info">
+            <h2>Get in Touch 👋</h2>
+            <p>
+                I'm interested in learning, collaborating on projects,
+                and exploring software development opportunities.
+            </p>
+
+            <div class="info-item">
+                <div class="info-icon">📧</div>
+                <div>
+                    <h3>Email Me</h3>
+                    <a href="kanishkatamilarasu3@gmail.com">
+                        kanishkatamilarasu3@gmail.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">💻</div>
+                <div>
+                    <h3>My Interest</h3>
+                    <p>Java and Web Development</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">🚀</div>
+                <div>
+                    <h3>Open to</h3>
+                    <p>Learning and project collaboration</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h2>Send a Message ✨</h2>
+
+            <form id="messageForm">
+                <label for="name">Your Name</label>
+                <input type="text" id="name"
+                       placeholder="Enter your name" required>
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email"
+                       placeholder="Enter your email" required>
+
+                <label for="subject">Subject</label>
+                <input type="text" id="subject"
+                       placeholder="What is this about?" required>
+
+                <label for="message">Your Message</label>
+                <textarea id="message"
+                          placeholder="Write your message here..."
+                          required></textarea>
+
+                <button type="submit" class="button">
+                    Open Email App →
+                </button>
+            </form>
+        </div>
+
+    </section>
+
+    <section class="bottom-card">
+        <h2>Thanks for Visiting! 💜</h2>
+        <p>
+            Every connection is an opportunity to learn something new.
+            Explore the rest of my portfolio to learn more about me.
+        </p>
+        <a href="index.html" class="button">
+            ← Back to Dashboard
+        </a>
+    </section>
+
+</main>
+
+<footer>
+    <p>CodeNest | Personal Portfolio</p>
+</footer>
+
+<script>
+    document.getElementById("messageForm").addEventListener("submit",
+        function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const subject = document.getElementById("subject").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            const recipient = "yourname@example.com";
+
+            const body =
+                "Name: " + name + "\n" +
+                "Email: " + email + "\n\n" +
+                "Message:\n" + message;
+
+            const mailtoLink =
+                "mailto:" + recipient +
+                "?subject=" + encodeURIComponent(subject) +
+                "&body=" + encodeURIComponent(body);
+
+            window.location.href = mailtoLink;
+        }
+    );
+</script>
+
+</body>
+</html>

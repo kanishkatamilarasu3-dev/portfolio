@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .app-card { max-width: 650px; margin: 30px auto; }
+        .app-card input, .app-card select {
+            width: 100%; padding: 12px; margin: 8px 0 16px;
+            border: 1px solid #d7c8f5; border-radius: 10px;
+            font-size: 16px;
+        }
+        .expense-row {
+            display: flex; justify-content: space-between;
+            align-items: center; gap: 12px;
+            padding: 12px 0; border-bottom: 1px solid #eee;
+        }
+        .delete-btn {
+            background: #ffe4ec; color: #b42350; border: 0;
+            padding: 8px 12px; border-radius: 8px; cursor: pointer;
+        }
+        .total { color: #6a11cb; font-size: 28px; font-weight: bold; }
+    </style>
+</head>
+<body>
+<header>
+    <h1 style="color:white">💰 Expense Tracker</h1>
+    <p>Keep track of your daily spending</p>
+</header>
+
+<nav>
+    <a href="index.html">Dashboard</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<main class="container">
+    <div class="card app-card">
+        <h2>Total Expenses</h2>
+        <p class="total" id="total">₹0.00</p>
+
+        <form id="expenseForm">
+            <label for="title">Expense Name</label>
+            <input id="title" placeholder="e.g. Lunch" required>
+
+            <label for="amount">Amount (₹)</label>
+            <input id="amount" type="number" min="0.01"
+                   step="0.01" placeholder="100" required>
+
+            <label for="category">Category</label>
+            <select id="category">
+                <option>Food</option>
+                <option>Travel</option>
+                <option>Shopping</option>
+                <option>Education</option>
+                <option>Other</option>
+            </select>
+
+            <button class="button" type="submit">Add Expense</button>
+        </form>
+
+        <h2>Expense History</h2>
+        <div id="expenseList">No expenses added yet.</div>
+        <a class="button" href="projects.html">← Back to Projects</a>
+    </div>
+</main>
+
+<script>
+    const form = document.getElementById("expenseForm");
+    const list = document.getElementById("expenseList");
+    const totalElement = document.getElementById("total");
+    let expenses = [];
+
+    function renderExpenses() {
+        list.replaceChildren();
+
+        if (expenses.length === 0) {
+            list.textContent = "No expenses added yet.";
+        }
+
+        expenses.forEach((expense, index) => {
+            const row = document.createElement("div");
+            row.className = "expense-row";
+
+            const info = document.createElement("span");
+            info.textContent =
+                expense.title + " (" + expense.category + ") — ₹" +
+                expense.amount.toFixed(2);
+
+            const button = document.createElement("button");
+            button.className = "delete-btn";
+            button.textContent = "Delete";
+            button.type = "button";
+            button.addEventListener("click", () => {
+                expenses.splice(index, 1);
+                renderExpenses();
+            });
+
+            row.append(info, button);
+            list.appendChild(row);
+        });
+
+        const total = expenses.reduce(
+            (sum, expense) => sum + expense.amount, 0
+        );
+        totalElement.textContent = "₹" + total.toFixed(2);
+    }
+
+    form.addEventListener("submit", event => {
+        event.preventDefault();
+
+        const title = document.getElementById("title").value.trim();
+        const amount = Number(document.getElementById("amount").value);
+        const category = document.getElementById("category").value;
+
+        if (!title || !Number.isFinite(amount) || amount <= 0) {
+            alert("Enter a valid expense name and amount.");
+            return;
+        }
+
+        expenses.push({ title, amount, category });
+        form.reset();
+        renderExpenses();
+    });
+</script>
+</body>
+</html>

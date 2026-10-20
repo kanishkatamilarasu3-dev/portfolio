@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | CodeNest</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+            color: #292044;
+        }
+
+        /* Navigation */
+        nav {
+            background: #35206b;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 12px 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: #ff4f9a;
+        }
+
+        /* Welcome hero */
+        .hero {
+            max-width: 1150px;
+            width: 90%;
+            margin: 40px auto 25px;
+            padding: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(53, 32, 107, 0.12);
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .welcome-tag {
+            display: inline-block;
+            padding: 8px 14px;
+            background: #eee5ff;
+            color: #6a11cb;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        .hero h1 {
+            color: #6a11cb;
+            font-size: clamp(32px, 4vw, 46px);
+            margin: 20px 0 12px;
+        }
+
+        .hero h2 {
+            color: #35206b;
+            font-size: 21px;
+        }
+
+        .hero p {
+            color: #6b6480;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .hero-image {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 7px solid #eee5ff;
+            box-shadow: 0 8px 25px rgba(106, 17, 203, 0.15);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 22px;
+            margin: 10px 8px 0 0;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(90deg, #8b2be2, #ff4f9a);
+        }
+
+        .button-outline {
+            background: white;
+            color: #6a11cb;
+            border: 2px solid #6a11cb;
+        }
+
+        .button-outline:hover {
+            color: white;
+        }
+
+        /* Main content */
+        .container {
+            max-width: 1150px;
+            width: 90%;
+            margin: 25px auto 40px;
+        }
+
+        .section-title {
+            margin: 35px 0 20px;
+        }
+
+        .section-title h2 {
+            color: #35206b;
+            font-size: 29px;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #514779;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .info-card {
+            padding: 25px;
+            background: white;
+            border-radius: 22px;
+            box-shadow: 0 8px 24px rgba(53, 32, 107, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .info-icon {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eee5ff;
+            border-radius: 16px;
+            font-size: 27px;
+            margin-bottom: 17px;
+        }
+
+        .info-card h3 {
+            color: #512da8;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: #6b6480;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* Portfolio links */
+        .explore-section {
+            margin-top: 30px;
+            padding: 30px;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 8px 24px rgba(53, 32, 107, 0.1);
+        }
+
+        .explore-section h2 {
+            color: #35206b;
+            margin-top: 0;
+        }
+
+        .explore-section p {
+            color: #6b6480;
+            line-height: 1.7;
+        }
+
+        footer {
+            background: #35206b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 45px;
+        }
+
+        @media (max-width: 750px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 30px 22px;
+            }
+
+            .hero-image {
+                width: 170px;
+                height: 170px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                padding: 9px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a class="active" href="index.html">Dashboard</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<main>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="welcome-tag">WELCOME TO MY CodeNest</span>
+
+            <h1>Hello, I'm Kanishka 👋</h1>
+
+            <h2>CSE Student | Aspiring Software Developer</h2>
+
+            <p>
+                I'm passionate about learning programming,
+                exploring new technologies, and creating useful
+                projects through code.
+            </p>
+
+            <a href="about.html" class="button">
+                Explore My Profile →
+            </a>
+
+            <a href="projects.html" class="button button-outline">
+                View Projects
+            </a>
+        </div>
+    </section>
+
+    <section class="container">
+
+        <div class="section-title">
+            <h2>My Dashboard ✨</h2>
+            <p>A quick look at my education, interests and goals.</p>
+        </div>
+
+        <div class="info-grid">
+
+            <div class="info-card">
+                <div class="info-icon">🎓</div>
+                <h3>My Education</h3>
+                <p>
+                    Computer Science Engineering student,
+                    learning the fundamentals of software development.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon">💻</div>
+                <h3>My Interests</h3>
+                <p>
+                    Java programming, web development,
+                    problem solving and building applications.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon">🚀</div>
+                <h3>My Goal</h3>
+                <p>
+                    To improve my technical skills and become
+                    a capable software developer.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="explore-section">
+            <h2>Explore CodeNest 🌟</h2>
+            <p>
+                Discover my skills, learn more about me,
+                and explore the projects I'm working on.
+            </p>
+
+            <a href="skills.html" class="button">My Skills →</a>
+            <a href="projects.html" class="button">My Projects →</a>
+            <a href="contact.html" class="button">Contact Me →</a>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>CodeNest | Personal Portfolio</p>
+</footer>
+
+</body>
+</html>

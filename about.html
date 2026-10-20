@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Kanishka</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #292044;
+            background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+        }
+
+        header {
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+        }
+
+        header h1 {
+            color: white;
+            margin: 0;
+            font-size: 38px;
+        }
+
+        header p {
+            margin-bottom: 0;
+        }
+
+        nav {
+            background: #35206b;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 12px 15px;
+            margin: 0 2px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: #ff4f9a;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        .about-card {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 28px rgba(53, 32, 107, 0.12);
+        }
+
+        .about-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 7px solid #eee5ff;
+            flex-shrink: 0;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #eee5ff;
+            color: #6a11cb;
+            padding: 8px 14px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .about-content h2 {
+            color: #6a11cb;
+            font-size: 34px;
+            margin: 18px 0;
+        }
+
+        .about-content p {
+            line-height: 1.8;
+            color: #625a78;
+            font-size: 16px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 22px;
+            margin: 12px 8px 0 0;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
+            text-decoration: none;
+            border-radius: 11px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+        }
+
+        .section-title {
+            margin: 35px 0 20px;
+        }
+
+        .section-title h2 {
+            color: #35206b;
+            font-size: 29px;
+        }
+
+        .section-title p {
+            color: #514779;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .detail-card {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 22px rgba(53, 32, 107, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .detail-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .detail-card h3 {
+            color: #6a11cb;
+            margin-bottom: 10px;
+        }
+
+        .detail-card p {
+            color: #625a78;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .goal-card {
+            margin-top: 25px;
+            padding: 30px;
+            border-radius: 22px;
+            color: white;
+            background: linear-gradient(110deg, #6a11cb, #2575fc);
+        }
+
+        .goal-card h2 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .goal-card p {
+            line-height: 1.8;
+        }
+
+        .goal-card .button {
+            background: white;
+            color: #5425a8;
+        }
+
+        footer {
+            background: #35206b;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 45px;
+        }
+
+        @media (max-width: 750px) {
+            .about-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 28px 20px;
+            }
+
+            .about-image {
+                width: 160px;
+                height: 160px;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            nav a {
+                padding: 9px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>About Me ✨</h1>
+    <p>Get to know me, my interests and my goals.</p>
+</header>
+
+<nav>
+    <a href="index.html">Dashboard</a>
+    <a class="active" href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<main class="container">
+
+    <section class="about-card">
+        <div class="about-content">
+            <span class="tag">CSE STUDENT</span>
+
+            <h2>Hello, I'm Kanishka! 👋</h2>
+
+            <p>
+                I am a Computer Science Engineering student who enjoys
+                learning programming and exploring new technologies.
+                I like creating websites, solving problems, and turning
+                ideas into useful projects.
+            </p>
+
+            <p>
+                I am currently developing my skills in Java and
+                web development while building my experience
+                through practice.
+            </p>
+
+            <a href="skills.html" class="button">Explore My Skills →</a>
+            <a href="projects.html" class="button">See My Projects →</a>
+        </div>
+
+    </section>
+
+    <section>
+        <div class="section-title">
+            <h2>A Little More About Me 🌟</h2>
+            <p>What motivates me as a student and future developer.</p>
+        </div>
+
+        <div class="details-grid">
+
+            <div class="detail-card">
+                <div class="detail-icon">🎓</div>
+                <h3>My Education</h3>
+                <p>
+                    I am studying Computer Science Engineering
+                    and learning the foundations of software
+                    development and computer science.
+                </p>
+            </div>
+
+            <div class="detail-card">
+                <div class="detail-icon">💻</div>
+                <h3>My Interests</h3>
+                <p>
+                    I enjoy Java programming, designing websites,
+                    exploring technology, and developing
+                    beginner-friendly applications.
+                </p>
+            </div>
+
+            <div class="detail-card">
+                <div class="detail-icon">🌱</div>
+                <h3>My Strengths</h3>
+                <p>
+                    I value continuous learning, patience,
+                    curiosity, and improving my skills
+                    through hands-on practice.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="goal-card">
+        <h2>My Career Goal 🚀</h2>
+        <p>
+            My goal is to become a skilled software developer.
+            I want to strengthen my programming fundamentals,
+            build meaningful projects, and gain practical
+            experience with real-world applications.
+        </p>
+
+        <a href="contact.html" class="button">Let's Connect →</a>
+    </section>
+
+</main>
+
+<footer>
+    <p>CodeNest | Personal Portfolio</p>
+</footer>
+
+</body>
+</html>

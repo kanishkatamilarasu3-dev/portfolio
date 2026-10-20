@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student Grade Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .app-card { max-width: 650px; margin: 30px auto; }
+        .app-card input {
+            width: 100%; padding: 12px; margin: 8px 0 16px;
+            border: 1px solid #d7c8f5; border-radius: 10px;
+            font-size: 16px;
+        }
+        .result {
+            background: #f1eaff; padding: 20px;
+            border-radius: 15px; margin-top: 20px;
+        }
+        .result h2 { color: #6a11cb; }
+    </style>
+</head>
+<body>
+<header>
+    <h1 style="color:white">📝 Grade Calculator</h1>
+    <p>Calculate your marks and percentage</p>
+</header>
+
+<nav>
+    <a href="index.html">Dashboard</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<main class="container">
+    <div class="card app-card">
+        <h2>Enter Your Marks</h2>
+        <p>Enter marks out of 100 for each subject.</p>
+
+        <form id="gradeForm">
+            <label for="m1">Subject 1</label>
+            <input id="m1" type="number" min="0" max="100"
+                   placeholder="Enter marks" required>
+
+            <label for="m2">Subject 2</label>
+            <input id="m2" type="number" min="0" max="100"
+                   placeholder="Enter marks" required>
+
+            <label for="m3">Subject 3</label>
+            <input id="m3" type="number" min="0" max="100"
+                   placeholder="Enter marks" required>
+
+            <label for="m4">Subject 4</label>
+            <input id="m4" type="number" min="0" max="100"
+                   placeholder="Enter marks" required>
+
+            <label for="m5">Subject 5</label>
+            <input id="m5" type="number" min="0" max="100"
+                   placeholder="Enter marks" required>
+
+            <button class="button" type="submit">Calculate Grade</button>
+        </form>
+
+        <div class="result" id="result" hidden aria-live="polite"></div>
+        <a class="button" href="projects.html">← Back to Projects</a>
+    </div>
+</main>
+
+<script>
+    document.getElementById("gradeForm").addEventListener(
+        "submit", function(event) {
+            event.preventDefault();
+
+            const marks = [];
+            for (let i = 1; i <= 5; i++) {
+                const value = Number(
+                    document.getElementById("m" + i).value
+                );
+
+                if (value < 0 || value > 100) {
+                    alert("Each mark must be between 0 and 100.");
+                    return;
+                }
+
+                marks.push(value);
+            }
+
+            const total = marks.reduce((sum, mark) => sum + mark, 0);
+            const percentage = total / 5;
+            const grade = percentage >= 90 ? "A+" :
+                          percentage >= 80 ? "A" :
+                          percentage >= 70 ? "B" :
+                          percentage >= 60 ? "C" :
+                          percentage >= 50 ? "D" : "F";
+
+            const result = document.getElementById("result");
+            result.replaceChildren();
+
+            const heading = document.createElement("h2");
+            heading.textContent = "Your Result";
+
+            const details = document.createElement("p");
+            details.textContent =
+                "Total: " + total + " / 500";
+
+            const percent = document.createElement("p");
+            percent.textContent =
+                "Percentage: " + percentage.toFixed(2) + "%";
+
+            const gradeText = document.createElement("p");
+            gradeText.textContent = "Grade: " + grade;
+
+            result.append(heading, details, percent, gradeText);
+            result.hidden = false;
+        }
+    );
+</script>
+</body>
+</html>

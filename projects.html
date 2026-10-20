@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects | Kanishka</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f7f5ff;
+            color: #292044;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: #2d1b69;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: inline-block;
+            border-radius: 8px;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: #8b5cf6;
+        }
+
+        /* Hero section */
+        .project-hero {
+            text-align: center;
+            padding: 65px 20px 75px;
+            background: linear-gradient(135deg, #30156e, #6d28d9, #a855f7);
+            color: white;
+        }
+
+        .project-hero .small-title {
+            display: inline-block;
+            border: 1px solid #d8b4fe;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .project-hero h1 {
+            color: white;
+            font-size: clamp(34px, 5vw, 52px);
+            margin: 10px 0;
+        }
+
+        .project-hero p {
+            color: #f3e8ff;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* Main section */
+        .project-section {
+            max-width: 1100px;
+            width: 90%;
+            margin: 45px auto;
+        }
+
+        .section-heading {
+            margin-bottom: 25px;
+        }
+
+        .section-heading h2 {
+            font-size: 29px;
+            color: #38206e;
+            margin-bottom: 8px;
+        }
+
+        .section-heading p {
+            color: #777087;
+            line-height: 1.6;
+        }
+
+        /* Project cards */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 28px;
+            background: white;
+            color: #30254a;
+            text-decoration: none;
+            border-radius: 22px;
+            border: 1px solid #e9ddff;
+            box-shadow: 0 8px 25px rgba(49, 25, 105, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-9px);
+            box-shadow: 0 18px 35px rgba(75, 35, 140, 0.18);
+        }
+
+        .project-icon {
+            width: 68px;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            font-size: 34px;
+            margin-bottom: 22px;
+        }
+
+        .purple-icon {
+            background: #eee5ff;
+        }
+
+        .pink-icon {
+            background: #ffe4ef;
+        }
+
+        .blue-icon {
+            background: #dcecff;
+        }
+
+        .project-label {
+            color: #8054c7;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+
+        .project-card h3 {
+            font-size: 21px;
+            line-height: 1.4;
+            color: #35206b;
+            margin: 0 0 12px;
+        }
+
+        .project-card p {
+            color: #716a80;
+            font-size: 14px;
+            line-height: 1.8;
+            margin: 0 0 22px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 24px;
+        }
+
+        .tech-tags span {
+            background: #f1ebff;
+            color: #6537a5;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 7px 10px;
+            border-radius: 20px;
+        }
+
+        .project-link {
+            margin-top: auto;
+            padding-top: 15px;
+            width: 100%;
+            border-top: 1px solid #eee8f8;
+            color: #6d28d9;
+            font-weight: bold;
+        }
+
+        .project-card:hover .project-link {
+            color: #e04491;
+        }
+
+        /* Contact banner */
+        .contact-banner {
+            margin-top: 45px;
+            padding: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            border-radius: 24px;
+            background: linear-gradient(110deg, #38206e, #713bd0);
+            color: white;
+        }
+
+        .contact-banner h2 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .contact-banner p {
+            color: #eee5ff;
+            line-height: 1.6;
+        }
+
+        .contact-btn {
+            background: white;
+            color: #5b21b6;
+            padding: 14px 22px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            white-space: nowrap;
+            transition: background 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #fce7f3;
+        }
+
+        footer {
+            background: #2d1b69;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 850px) {
+            .project-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 580px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-hero {
+                padding: 45px 15px;
+            }
+
+            .project-section {
+                width: 92%;
+            }
+
+            .contact-banner {
+                padding: 25px;
+            }
+
+            nav a {
+                padding: 8px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="project-hero">
+    <span class="small-title">CodeNest - 2026💫</span>
+    <h1>Explore My Work 🚀</h1>
+    <p>Creative ideas turned into meaningful projects.</p>
+    <p>Every project is another step in my learning journey.</p>
+</header>
+
+<nav>
+    <a href="index.html">Dashboard</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a class="active" href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<main class="project-section">
+
+    <div class="section-heading">
+        <h2>Featured Projects ✨</h2>
+        <p>Explore my work and try out each application.</p>
+    </div>
+
+    <div class="project-grid">
+
+        <a href="expense.html" class="project-card">
+            <div class="project-icon purple-icon">💰</div>
+            <span class="project-label">PROJECT 01</span>
+            <h3>Expense Tracker</h3>
+            <p>Record daily expenses, organize spending by category,
+               and calculate your total expenditure.</p>
+            <div class="tech-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+            </div>
+            <div class="project-link">Explore Project ↗</div>
+        </a>
+
+        <a href="grade-calculator.html" class="project-card">
+            <div class="project-icon pink-icon">📝</div>
+            <span class="project-label">PROJECT 02</span>
+            <h3>Student Grade Calculator</h3>
+            <p>Enter subject marks and calculate total marks,
+               percentage, and the corresponding grade.</p>
+            <div class="tech-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+            </div>
+            <div class="project-link">Explore Project ↗</div>
+        </a>
+
+        <a href="quiz.html" class="project-card">
+            <div class="project-icon blue-icon">❓</div>
+            <span class="project-label">PROJECT 03</span>
+            <h3>Quiz Application</h3>
+            <p>Answer multiple-choice questions, check your answers,
+               and see your final score.</p>
+            <div class="tech-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+            </div>
+            <div class="project-link">Explore Project ↗</div>
+        </a>
+
+    </div>
+
+    <section class="contact-banner">
+        <div>
+            <h2>Have an idea or opportunity? 💜</h2>
+            <p>Let's connect and create something amazing together.</p>
+        </div>
+        <a href="contact.html" class="contact-btn">Contact Me →</a>
+    </section>
+
+</main>
+
+<footer>
+    <p>CodeNest | Personal Portfolio</p>
+</footer>
+
+</body>
+</html>
